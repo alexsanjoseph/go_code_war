@@ -9,8 +9,8 @@ import (
 
 func HighAndLow(in string) string {
 	splitString := strings.Split(in, " ")
-	smallest := math.MaxInt
-	largest := math.MinInt
+	smallest := math.MaxInt32
+	largest := math.MinInt32
 	for _, val := range splitString {
 		conv, _ := strconv.Atoi(val)
 		if conv < smallest {
