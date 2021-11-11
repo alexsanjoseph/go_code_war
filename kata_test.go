@@ -13,11 +13,21 @@ func TestBooks(t *testing.T) {
 	RunSpecs(t, "Books Suite")
 }
 
-var _ = Describe("Example Test", func() {
-	It("should test that the solution returns the correct value", func() {
-		Expect(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4")).To(Equal("42 -9"))
+var _ = Describe("Test Example", func() {
+	It("should work for sample test cases", func() {
+		Expect(ToJadenCase("most trees are blue")).To(Equal("Most Trees Are Blue"))
+		Expect(ToJadenCase("All the rules in this world were made by someone no smarter than you. So make your own.")).To(Equal("All The Rules In This World Were Made By Someone No Smarter Than You. So Make Your Own."))
+		Expect(ToJadenCase("When I die. then you will realize")).To(Equal("When I Die. Then You Will Realize"))
+		Expect(ToJadenCase("Jonah Hill is a genius")).To(Equal("Jonah Hill Is A Genius"))
+		Expect(ToJadenCase("Dying is mainstream")).To(Equal("Dying Is Mainstream"))
 	})
 })
+
+// var _ = Describe("Example Test", func() {
+// 	It("should test that the solution returns the correct value", func() {
+// 		Expect(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4")).To(Equal("42 -9"))
+// 	})
+// })
 
 // func dotest(s string, exp string) {
 // 	var ans = Accum(s)
