@@ -50,5 +50,5 @@ func OperArray(f FParam, arr []int, init int) []int {
 	for i := 1; i < len(output); i++ {
 		output[i] = f(output[i-1], arr[i-1])
 	}
-	return output[1:len(output)]
+	return output[1:]
 }
