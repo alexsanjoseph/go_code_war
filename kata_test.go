@@ -8,42 +8,63 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestBooks(t *testing.T) {
+func TestKata(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Books Suite")
 }
 
-func dotest(k, start, nd int, exp []int) {
-	var ans = Step(k, start, nd)
+func dotest(a1 string, exp string) {
+	var ans = Stati(a1)
 	Expect(ans).To(Equal(exp))
 }
 
-var _ = Describe("Check for Primes", func() {
+var _ = Describe("Tests Stati", func() {
 
 	It("should handle basic cases", func() {
-		Expect(true).To(Equal(IsPrime(7)))
-		Expect(true).To(Equal(IsPrime(2)))
-		Expect(true).To(Equal(IsPrime(17)))
-		Expect(true).To(Equal(IsPrime(101)))
-		Expect(false).To(Equal(IsPrime(1)))
-		Expect(false).To(Equal(IsPrime(1001)))
-		Expect(false).To(Equal(IsPrime(50)))
-		Expect(false).To(Equal(IsPrime(25)))
-		Expect(false).To(Equal(IsPrime(30148)))
+		dotest("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17",
+			"Range: 01|01|18 Average: 01|38|05 Median: 01|32|34")
+		dotest("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41",
+			"Range: 00|31|17 Average: 02|26|18 Median: 02|22|00")
+
+	})
+
+	It("should convert to second correctly", func() {
+		Expect(ConvertToSeconds("01|15|59")).To(Equal(4559))
+		Expect(ConvertToString(4559)).To(Equal("01|15|59"))
 	})
 })
 
-var _ = Describe("Test Example", func() {
+// func dotest(k, start, nd int, exp []int) {
+// 	var ans = Step(k, start, nd)
+// 	Expect(ans).To(Equal(exp))
+// }
 
-	It("should handle basic cases", func() {
-		dotest(2, 100, 110, []int{101, 103})
-		dotest(4, 100, 110, []int{103, 107})
-		dotest(6, 100, 110, []int{101, 107})
-		dotest(8, 300, 400, []int{359, 367})
-		dotest(10, 300, 400, []int{307, 317})
-		dotest(11, 30000, 100000, nil)
-	})
-})
+// var _ = Describe("Check for Primes", func() {
+
+// 	It("should handle basic cases", func() {
+// 		Expect(true).To(Equal(IsPrime(7)))
+// 		Expect(true).To(Equal(IsPrime(2)))
+// 		Expect(true).To(Equal(IsPrime(17)))
+// 		Expect(true).To(Equal(IsPrime(101)))
+// 		Expect(false).To(Equal(IsPrime(1)))
+// 		Expect(false).To(Equal(IsPrime(1001)))
+// 		Expect(false).To(Equal(IsPrime(50)))
+// 		Expect(false).To(Equal(IsPrime(25)))
+// 		Expect(false).To(Equal(IsPrime(30148)))
+// 	})
+// })
+
+// var _ = Describe("Test Example", func() {
+
+// 	It("should handle basic cases", func() {
+// 		dotest(2, 100, 110, []int{101, 103})
+// 		dotest(4, 100, 110, []int{103, 107})
+// 		dotest(6, 100, 110, []int{101, 107})
+// 		dotest(8, 300, 400, []int{359, 367})
+// 		dotest(10, 300, 400, []int{307, 317})
+// 		dotest(11, 30000, 100000, nil)
+// 	})
+// })
 
 // func dotest(f FParam, arr []int, init int, exp []int) {
 // 	var ans = OperArray(f, arr, init)
