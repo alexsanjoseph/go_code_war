@@ -1,7 +1,7 @@
 package kata_test
 
 import (
-	. "codewarrior/kata"
+	. "codewarrior/kata/kyu6"
 	"testing"
 
 	. "github.com/onsi/ginkgo"
