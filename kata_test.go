@@ -13,26 +13,43 @@ func TestKata(t *testing.T) {
 	RunSpecs(t, "Books Suite")
 }
 
-func dotest(m, n int, exp int) {
-	var ans = CheckChoose(m, n)
+func dotest(start int, stop int, exp []int) {
+	var ans = BackwardsPrime(start, stop)
 	Expect(ans).To(Equal(exp))
 }
 
-var _ = Describe("Test Example", func() {
+var _ = Describe("Tests BackwardsPrime", func() {
 
 	It("should handle basic cases", func() {
-		dotest(6, 4, 2)
-		dotest(6, 4, 2)
-		dotest(4, 4, 1)
-		dotest(4, 2, -1)
-		dotest(35, 7, 3)
-		dotest(36, 7, -1)
-		dotest(184756, 20, 10)
-		dotest(3268760, 25, 10)
-		dotest(6540715896, 48, 10)
-		dotest(6540715897, 48, -1)
+		var a = []int{13, 17, 31, 37, 71, 73, 79, 97}
+		dotest(1, 100, a)
+		a = []int{13, 17, 31}
+		dotest(1, 31, a)
+		dotest(501, 599, nil)
+
 	})
 })
+
+// func dotest(m, n int, exp int) {
+// 	var ans = CheckChoose(m, n)
+// 	Expect(ans).To(Equal(exp))
+// }
+
+// var _ = Describe("Test Example", func() {
+
+// 	It("should handle basic cases", func() {
+// 		dotest(6, 4, 2)
+// 		dotest(6, 4, 2)
+// 		dotest(4, 4, 1)
+// 		dotest(4, 2, -1)
+// 		dotest(35, 7, 3)
+// 		dotest(36, 7, -1)
+// 		dotest(184756, 20, 10)
+// 		dotest(3268760, 25, 10)
+// 		dotest(6540715896, 48, 10)
+// 		dotest(6540715897, 48, -1)
+// 	})
+// })
 
 // func dotest(n int, exp []int) {
 // 	var ans = Game(n)
