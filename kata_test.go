@@ -13,24 +13,45 @@ func TestKata(t *testing.T) {
 	RunSpecs(t, "Books Suite")
 }
 
-func dotest(n int, exp []int) {
-	var ans = Game(n)
+func dotest(m, n int, exp int) {
+	var ans = CheckChoose(m, n)
 	Expect(ans).To(Equal(exp))
 }
 
 var _ = Describe("Test Example", func() {
 
 	It("should handle basic cases", func() {
-		dotest(0, []int{0})
-		dotest(1, []int{1, 2})
-		dotest(2, []int{2})
-		dotest(3, []int{9, 2})
-		dotest(4, []int{8})
-		dotest(5, []int{25, 2})
-		dotest(8, []int{32})
-		dotest(40, []int{800})
+		dotest(6, 4, 2)
+		dotest(6, 4, 2)
+		dotest(4, 4, 1)
+		dotest(4, 2, -1)
+		dotest(35, 7, 3)
+		dotest(36, 7, -1)
+		dotest(184756, 20, 10)
+		dotest(3268760, 25, 10)
+		dotest(6540715896, 48, 10)
+		dotest(6540715897, 48, -1)
 	})
 })
+
+// func dotest(n int, exp []int) {
+// 	var ans = Game(n)
+// 	Expect(ans).To(Equal(exp))
+// }
+
+// var _ = Describe("Test Example", func() {
+
+// 	It("should handle basic cases", func() {
+// 		dotest(0, []int{0})
+// 		dotest(1, []int{1, 2})
+// 		dotest(2, []int{2})
+// 		dotest(3, []int{9, 2})
+// 		dotest(4, []int{8})
+// 		dotest(5, []int{25, 2})
+// 		dotest(8, []int{32})
+// 		dotest(40, []int{800})
+// 	})
+// })
 
 // func dotest(a1 string, exp string) {
 // 	var ans = Stati(a1)
