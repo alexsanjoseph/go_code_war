@@ -1,8 +1,9 @@
 package kata_test
 
 import (
-	. "codewarrior/kata/kyu6"
 	"testing"
+
+	. "codewarrior/kata/kyu6"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -10,25 +11,44 @@ import (
 
 func TestKata(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Books Suite")
+	RunSpecs(t, "Kata Suite")
 }
 
-func dotest(start int, stop int, exp []int) {
-	var ans = BackwardsPrime(start, stop)
-	Expect(ans).To(Equal(exp))
-}
-
-var _ = Describe("Tests BackwardsPrime", func() {
-
-	It("should handle basic cases", func() {
-		var a = []int{13, 17, 31, 37, 71, 73, 79, 97}
-		dotest(1, 100, a)
-		a = []int{13, 17, 31}
-		dotest(1, 31, a)
-		dotest(501, 599, nil)
-
+var _ = Describe("Example tests", func() {
+	It("It should work for basic tests", func() {
+		Expect(Solve(1)).To(Equal(-1))
+		Expect(Solve(2)).To(Equal(-1))
+		Expect(Solve(3)).To(Equal(1))
+		Expect(Solve(4)).To(Equal(-1))
+		Expect(Solve(5)).To(Equal(4))
+		Expect(Solve(7)).To(Equal(9))
+		Expect(Solve(8)).To(Equal(1))
+		Expect(Solve(9)).To(Equal(16))
+		Expect(Solve(10)).To(Equal(-1))
+		Expect(Solve(11)).To(Equal(25))
+		Expect(Solve(13)).To(Equal(36))
+		Expect(Solve(17)).To(Equal(64))
+		Expect(Solve(88901)).To(Equal(5428900))
+		Expect(Solve(290101)).To(Equal(429235524))
 	})
 })
+
+// func dotest(start int, stop int, exp []int) {
+// 	var ans = BackwardsPrime(start, stop)
+// 	Expect(ans).To(Equal(exp))
+// }
+
+// var _ = Describe("Tests BackwardsPrime", func() {
+
+// 	It("should handle basic cases", func() {
+// 		var a = []int{13, 17, 31, 37, 71, 73, 79, 97}
+// 		dotest(1, 100, a)
+// 		a = []int{13, 17, 31}
+// 		dotest(1, 31, a)
+// 		dotest(501, 599, nil)
+
+// 	})
+// })
 
 // func dotest(m, n int, exp int) {
 // 	var ans = CheckChoose(m, n)
