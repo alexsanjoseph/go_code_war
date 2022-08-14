@@ -14,7 +14,6 @@ func arrayToString(a []int, delim string) string {
 }
 func dotest_buddy(start, limit int, exp string) {
 	ans := arrayToString(Buddy(start, limit), " ")
-	fmt.Printf("Expected %s\nGot %s\n", exp, ans)
 	Expect(ans).To(Equal(exp))
 }
 
